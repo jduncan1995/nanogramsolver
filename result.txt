@@ -1,0 +1,7 @@
+row values
+b2,w1,b2
+b5
+b5
+bad
+bad
+column values
