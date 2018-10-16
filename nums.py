@@ -20,19 +20,34 @@ for i in range(0, x): #get values of all rows
 		x = int(x)
 		sums = sums + x
 		n = n + 1
-		if x > maxnum
+		if x > maxnum:
 			maxnum = x
-	sums = sums + n - 1
-	minplaceable = y - sums
+	if n != 1:
+		sums = sums + n - 1
+	else:
+		sums = sums
+	minplaceable = int(y - sums)
 	if sums == y:
 		for k in range(0,len(vals)-1):
 			out.write("b" + vals[k])
 			out.write(",w1,")
 		out.write("b" + vals[-1] + "\n")
-	elif y - sums <= maxnum: # we could place some not all
-		
+	elif minplaceable < maxnum: # we could place some not all
+		curwhite = 0
+		for x in vals:
+			x = int(x)
+			if x > minplaceable:
+				curwhite = curwhite + minplaceable
+				out.write("w" + str(curwhite) + ",")
+				res = x - minplaceable
+				out.write("b" + str(res) + ",")
+				curwhite = minplaceable
+				#trying to be clever with the math that goes here to calculate 
+			else:
+				curwhite = curwhite + x + 1
+		out.write("w" + str(curwhite) + "\n")		
 	else:
-		out.write("bad\n")
+		out.write("w" + str(y) +"\n")
 
 
 out.write("column values")

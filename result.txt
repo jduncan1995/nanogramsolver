@@ -2,6 +2,6 @@ row values
 b2,w1,b2
 b5
 b5
-bad
-bad
+w2,b1,w2
+w5
 column values
